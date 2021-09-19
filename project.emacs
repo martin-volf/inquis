@@ -2,6 +2,14 @@
   '(org-journal-dir "~/Documents/AK/calix/tma/journal/")
   )
 
+(require 'calendar)
+
+(defun journal-view ()
+  (interactive)
+  (switch-to-buffer (get-buffer-create calendar-buffer))
+  (calendar-generate-window 5 1450)
+  (calendar-mode))
+
 (defun summ-export ()
   (interactive)
   (with-temp-buffer
