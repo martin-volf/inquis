@@ -24,3 +24,5 @@
     (end-of-buffer)
     (insert "\n#+EXPORT_FILE_NAME: /tmp/summ\n")
     (org-html-export-to-html)))
+
+(setq dark-theme t)
