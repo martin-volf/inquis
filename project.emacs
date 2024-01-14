@@ -12,9 +12,9 @@
 
 (defun summ-export ()
   (interactive)
+  (save-some-buffers)
   (with-temp-buffer
     (org-mode)
-    (save-some-buffers)
 
     (loop for jfile in
           (sort (directory-files "~/Documents/AK/calix/tma/journal/" t "^[0-9]+$")
