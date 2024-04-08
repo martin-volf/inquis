@@ -1,6 +1,7 @@
+(defvar journal-dir (concat default-directory "journal/"))
+
 (custom-set-variables
-  '(org-journal-dir "~/Documents/AK/calix/tma/journal/")
-  )
+ '(org-journal-dir journal-dir))
 
 (require 'calendar)
 
@@ -17,7 +18,7 @@
     (org-mode)
 
     (loop for jfile in
-          (sort (directory-files "~/Documents/AK/calix/tma/journal/" t "^[0-9]+$")
+          (sort (directory-files journal-dir t "^[0-9]+$")
                 #'string-greaterp)
           do (insert-file jfile))
 
