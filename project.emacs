@@ -5,6 +5,9 @@
 
 (require 'calendar)
 
+(custom-set-variables
+ '(org-journal-date-format "%A, %m/%d/%Y"))
+
 (defun journal-view ()
   (interactive)
   (switch-to-buffer (get-buffer-create calendar-buffer))
@@ -17,7 +20,7 @@
   (with-temp-buffer
     (org-mode)
 
-    (loop for jfile in
+    (cl-loop for jfile in
           (sort (directory-files journal-dir t "^[0-9]+$")
                 #'string-greaterp)
           do (insert-file jfile))
